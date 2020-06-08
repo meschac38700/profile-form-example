@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafikart test</title>  
+    <style>
+       *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 16px;
+            margin-bottom: 1.2em;
+        }
+        h1::after{
+            content: "";
+            display: block;
+            border-bottom: 1.2px solid #eee;
+            margin-top: .5em;
+        }
+        body{
+            background-color: #e6e6e6;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.4;
+            color: rgba(0, 0, 0, .75);
+        }
+        .btn{
+            padding: .5em .8em;
+            border-radius: 4px;
+            line-height: 1.4;
+            cursor: pointer;
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #000;
+            margin: .5em;
+        }
+        .btn-primary
+        {
+            background-color: #565aea;
+            color: #fff;
+            border: 1px solid #565aea;
+        }
+        .btn-reverse{
+            background-color: #f00;
+            border-color: red;
+        }
+        .flex-right{
+            display: flex;
+            justify-content: end;
+            flex-wrap: wrap;
+        }
+        .container,.content
+        {
+            background-color: #f3f3f3;
+            width: 1050px;
+            max-width: 90%;
+            margin: 4em auto;
+        }
+        .container{
+            padding-top: 2em;
+            padding-bottom: 2em;
+        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            padding: 1em 1.5em 2em 1.5em;
+            box-shadow: 0 2px 3px #ccc;
+            border-radius: 4px;
+        }
+        .form-grid{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1em 1em;
+        }
+        .form-flex{
+            display: flex;
+            margin: 1em 0;
+            font-size: 13px;
+        }
+        .form-flex label{
+            display: inline;
+        }
+        .form-flex > div:first-child{
+            margin-right: 1.5em;
+        }
+        .form-flex > div input[type=checkbox]
+        {
+            transform: translateY(4px);
+            margin-right: 4px;
+        }
+        .form-control:not([type=checkbox]){
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: .6em .2em;
+            width: 100%;
+        }
+        textarea{
+            width: 100%;
+            height: calc(100% - 2em);
+            align-self: stretch;
+            display: inline-block;
+            resize: none;
+        }
+        .big{
+            grid-area: span 2 / span 1;
+        }
+
+        label{
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        @media only screen and (max-width: 900px) {
+            .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .big{
+                grid-area: span 8 / span 2;
+            }
+            .flex-right > *{
+                width: 100%;
+            }
+        }
+        @media only screen and (max-width: 650px) {
+            .form-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .big{
+                grid-column: span 1;
+            }
+        }
+
+
+
+    </style>  
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Modifier mon profil</h1>
+            <form action="#" method="GET">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nom</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="pseudo" class="form-label">Pseudo</label>
+                        <input type="text" class="form-control" id="pseudo">
+                    </div>
+                    <div class="form-group big">
+                        <label for="bio" class="form-label">Bio</label>
+                        <textarea name="bio" id="bio" class="form-control"></textarea>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="tel" class="form-label">Téléphone[mobile]</label>
+                        <input type="text" class="form-control" id="tel">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="adress" class="form-label">Adresse</label>
+                        <input type="text" class="form-control" id="adress">
+                    </div>
+                    <div class="form-group">
+                        <label for="city" class="form-label">Ville</label>
+                        <input type="text" class="form-control" id="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="zipcode" class="form-label">Code Postal</label>
+                        <input type="text" class="form-control" id="zipcode">
+                    </div>
+                </div>
+                <div class="form-flex">
+                    <div class="form-group">
+                        <input class="form-control" type="checkbox" name="newsletter" id="newsletter">
+                        <label for="newsletter">Je souhaite recevoir la newsletter</label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="checkbox" name="partnernewsletter" id="partnernewsletter">
+                        <label for="partnernewsletter">Je souhaite recevoir la newsletter des partenaires</label>
+                    </div>
+                </div>
+                <div class="form-group flex-right">
+                    <button class="btn btn-primary" type="submit">Enrégistrer mes modifications</button>
+                    <button class="btn btn-primary btn-reverse" type="submit">Annuler mes modifications</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
